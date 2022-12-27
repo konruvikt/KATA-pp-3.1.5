@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 import java.util.List;
 
-@Controller
-@RequestMapping("/admin")
+@RestController
+@RequestMapping("/admin/users")
 public class AdminController {
 
     private final UserService userService;
@@ -21,11 +21,6 @@ public class AdminController {
     }
 
     @GetMapping
-    public String showUsersPage(){
-        return "user-list";
-    }
-
-    @GetMapping("/users")
     public ResponseEntity<List<User>> findAll(){
         List<User> allUsers = userService.findAll();
         return ResponseEntity.ok(allUsers);
