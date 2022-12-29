@@ -2,7 +2,7 @@ $(async function() {
     await findAll();
 });
 const table = $('#usersTable');
-async function findAll() {
+function findAll() {
     table.empty()
     fetch("http://localhost:8081/admin/users")
         .then(res => res.json())
@@ -17,8 +17,8 @@ async function findAll() {
                             <td>${user.login}</td>
                             <td>${user.roles.map(role => " " + role.name.substring(5))}</td>
                             <td>
-                                <button type="button" class="btn btn-warning" data-toggle="modal" id="buttonEdit"
-                                data-action="edit" data-id="${user.id}" data-target="#edit">Edit</button>
+                              <button type="button" class="btn btn-warning"
+                                data-id="${user.id}" id="editBtn">Edit</button>
                             </td>
                             <td>
                                 <button type="button" class="btn btn-danger" data-toggle="modal" id="buttonDelete"

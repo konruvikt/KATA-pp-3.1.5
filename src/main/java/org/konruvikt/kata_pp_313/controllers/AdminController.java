@@ -27,9 +27,9 @@ public class AdminController {
     }
 
     @GetMapping("/{id}")
-    public User findUser(@PathVariable("id") Long id) {
+    public ResponseEntity<User> findUser(@PathVariable("id") Long id) {
         User user = userService.findById(id);
-        return user;
+        return ResponseEntity.ok(user);
     }
 
     @PostMapping
@@ -44,8 +44,8 @@ public class AdminController {
     }
 
     @PatchMapping
-    public User updateUser(@RequestBody User user){
+    public ResponseEntity<User> updateUser(@RequestBody User user){
         userService.saveOrUpdateUser(user);
-        return user;
+        return ResponseEntity.ok(user);
     }
 }
