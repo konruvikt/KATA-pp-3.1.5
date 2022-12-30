@@ -43,7 +43,7 @@ public class AdminController {
         userService.deleteById(id);
     }
 
-    @PatchMapping
+    @PatchMapping("/{id}")
     public ResponseEntity<User> updateUser(@RequestBody User user){
         userService.saveOrUpdateUser(user);
         return ResponseEntity.ok(user);

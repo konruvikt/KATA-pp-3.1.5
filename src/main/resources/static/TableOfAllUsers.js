@@ -1,7 +1,5 @@
-$(async function() {
-    await findAll();
-});
 const table = $('#usersTable');
+findAll();
 function findAll() {
     table.empty()
     fetch("http://localhost:8081/admin/users")
@@ -17,12 +15,16 @@ function findAll() {
                             <td>${user.login}</td>
                             <td>${user.roles.map(role => " " + role.name.substring(5))}</td>
                             <td>
-                              <button type="button" class="btn btn-warning"
-                                data-id="${user.id}" id="editBtn">Edit</button>
+                                <button type="button" class="btn btn-warning"
+                                data-bs-toogle="modal"
+                                data-bs-target="#editModal"
+                                onclick="editModalData(${user.id})">Edit</button>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-danger" data-toggle="modal" id="buttonDelete"
-                                data-action="delete" data-id="${user.id}" data-target="#delete">Delete</button>
+                                <button type="button" class="btn btn-danger" 
+                                data-toggle="modal"
+                                data-bs-target="#deleteModal"
+                                >Delete</button>
                             </td>
                         </tr>)`;
                 table.append(usersTable);
