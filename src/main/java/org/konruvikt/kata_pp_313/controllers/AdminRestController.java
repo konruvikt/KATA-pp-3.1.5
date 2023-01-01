@@ -3,20 +3,17 @@ package org.konruvikt.kata_pp_313.controllers;
 import org.konruvikt.kata_pp_313.models.User;
 import org.konruvikt.kata_pp_313.services.UserService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
 import java.util.List;
 
 @RestController
 @RequestMapping("/admin/users")
-public class AdminController {
+public class AdminRestController {
 
     private final UserService userService;
 
-    public AdminController(UserService userService) {
+    public AdminRestController(UserService userService) {
         this.userService = userService;
     }
 

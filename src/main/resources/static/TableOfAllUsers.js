@@ -1,5 +1,6 @@
 const table = $('#usersTable');
 findAll();
+
 function findAll() {
     table.empty()
     fetch("http://localhost:8081/admin/users")
@@ -24,7 +25,7 @@ function findAll() {
                                 <button type="button" class="btn btn-danger" 
                                 data-toggle="modal"
                                 data-bs-target="#deleteModal"
-                                >Delete</button>
+                                onclick="deleteModalData(${user.id})">Delete</button>
                             </td>
                         </tr>)`;
                 table.append(usersTable);
