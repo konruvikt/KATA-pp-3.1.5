@@ -30,9 +30,9 @@ public class AdminRestController {
     }
 
     @PostMapping
-    public User createUser(@RequestBody User user){
+    public ResponseEntity<User> createUser(@RequestBody User user){
         userService.saveOrUpdateUser(user);
-        return user;
+        return ResponseEntity.ok(user);
     }
 
     @DeleteMapping("/{id}")
