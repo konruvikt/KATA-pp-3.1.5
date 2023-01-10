@@ -36,8 +36,9 @@ public class AdminRestController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable("id") Long id) {
+    public ResponseEntity<Void> deleteUser(@PathVariable("id") Long id) {
         userService.deleteById(id);
+        return ResponseEntity.ok().build();
     }
 
     @PatchMapping("/{id}")
